@@ -2,12 +2,11 @@
 [![ReadMeSupportPalestine](https://github.com/Safouene1/support-palestine-banner/blob/master/banner-project.svg)](https://github.com/Safouene1/support-palestine-banner)
 
 ## Scope
-
-#### In this section we place the scope of the created template/module. ###
+This is Terraform code to create an Azure Kubernetes service, which enables authorization with Azure Active Directory and auditing for monitor diagnostics.
 
 ## Usage
 
-### Clone project
+First clone the repository
 
 ```
 git clone  https://github.com/violenti/aks-terraform-template.git
@@ -22,6 +21,8 @@ For to initialize the backend, your can do the next command:
 terraform init -reconfigure -backend-config="key="placeholder.tfstate -backend-config="container_name=placeholder"
 ```
 
+Run the following command to create it:
+
 ```
 terraform validate
 
@@ -30,7 +31,7 @@ terraform plan
 terraform apply
 ```
 
-### Installation of pre-commit for Ubuntu 20.04 and higher
+### Installation of pre-commit and terraform docs for Ubuntu 20.04 and higher
 
 ```
 sudo apt update

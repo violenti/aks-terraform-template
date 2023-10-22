@@ -1,0 +1,75 @@
+---
+formatter: markdown table
+version: ""
+header-from: main.tf
+footer-from: ""
+recursive:
+  enabled: false
+  path: " "
+sections:
+  show:
+    - all
+content: |-
+  [![ReadMeSupportPalestine](https://github.com/Safouene1/support-palestine-banner/blob/master/banner-project.svg)](https://github.com/Safouene1/support-palestine-banner)
+  ## Scope
+
+  #### In this section we place the scope of the created template/module. ###
+
+  ## Usage
+
+  ### Clone project
+   ```hcl
+  git clone  <repository_url>
+  cd <project_folder_name>/
+  ## To do plan/apply your code create an PR
+  ```
+  ### Installation of pre-commit for Ubuntu 20.04 and higher
+
+  ```bash
+  sudo apt update
+  sudo apt install -y unzip software-properties-common python3 python3-pip
+  python3 -m pip install --upgrade pip
+  pip/pip3 install -r requirements.txt
+  curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep -o -E -m 1 "https://.+?-linux-amd64.tar.gz")" > terraform-docs.tgz && tar -xzf terraform-docs.tgz terraform-docs && rm terraform-docs.tgz && chmod +x terraform-docs && sudo mv terraform-docs /usr/bin/
+  cd <project_folder_name>/
+  pre-commit install
+  ```
+  ### Installation of pre-commit for MacOS with Brew
+  ```bash
+  brew install pre-commit
+  ```
+
+  {{ .Providers }}
+
+  {{ .Outputs }}
+
+  {{ .Inputs }}
+
+output:
+  file: ""
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+output-values:
+  enabled: false
+  from: ""
+
+sort:
+  enabled: true
+  by: name
+
+settings:
+  anchor: true
+  color: true
+  default: true
+  description: false
+  escape: true
+  hide-empty: false
+  html: true
+  indent: 2
+  lockfile: true
+  read-comments: true
+  required: true

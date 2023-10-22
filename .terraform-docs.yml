@@ -19,25 +19,47 @@ content: |-
   ## Usage
 
   ### Clone project
-   ```hcl
-  git clone  <repository_url>
-  cd <project_folder_name>/
-  ## To do plan/apply your code create an PR
+
   ```
+  git clone  https://github.com/violenti/aks-terraform-template.git
+  cd aks-terraform-template/
+  ```
+
+  Edit the file terraform.tfvars with your values and the file backend.tf with "subscription_id", "resource_group_name" of your storage account and name in  "storage_account_name".
+
+  For to initialize the backend, your can do the next command:
+
+  ```
+  terraform init -reconfigure -backend-config="key="placeholder.tfstate -backend-config="container_name=placeholder"
+  ```
+
+  ```
+  terraform validate
+
+  terraform plan
+
+  terraform apply
+  ```
+
   ### Installation of pre-commit for Ubuntu 20.04 and higher
 
-  ```bash
+  ```
   sudo apt update
   sudo apt install -y unzip software-properties-common python3 python3-pip
+
   python3 -m pip install --upgrade pip
+
   pip/pip3 install -r requirements.txt
+
   curl -L "$(curl -s https://api.github.com/repos/terraform-docs/terraform-docs/releases/latest | grep -o -E -m 1 "https://.+?-linux-amd64.tar.gz")" > terraform-docs.tgz && tar -xzf terraform-docs.tgz terraform-docs && rm terraform-docs.tgz && chmod +x terraform-docs && sudo mv terraform-docs /usr/bin/
   cd <project_folder_name>/
   pre-commit install
   ```
-  ### Installation of pre-commit for MacOS with Brew
-  ```bash
-  brew install pre-commit
+
+  ### Installation of pre-commitand terraform docs for MacOS with Brew
+
+  ```
+  brew install pre-commit terraform-docs
   ```
 
   {{ .Providers }}
